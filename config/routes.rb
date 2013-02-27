@@ -1,6 +1,11 @@
 Kalindar::Application.routes.draw do
-  resources :courses
+  resources :events
 
+  devise_for :users
+
+  resources :courses
+  root to: 'courses#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

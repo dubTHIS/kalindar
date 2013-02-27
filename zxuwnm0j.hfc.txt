@@ -1,0 +1,54 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   Gemfile
+#	modified:   Gemfile.lock
+#	modified:   app/assets/stylesheets/application.css
+#	modified:   app/models/course.rb
+#	modified:   app/views/courses/_form.html.erb
+#	modified:   app/views/layouts/application.html.erb
+#	modified:   config/application.rb
+#	modified:   config/environments/development.rb
+#	modified:   config/routes.rb
+#	deleted:    db/migrate/20130205192106_create_courses.rb
+#	modified:   db/migrate/20130205195126_create_courses.rb
+#	modified:   db/schema.rb
+#	deleted:    public/index.html
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	app/assets/javascripts/events.js.coffee
+#	app/assets/stylesheets/events.css.scss
+#	app/controllers/events_controller.rb
+#	app/helpers/events_helper.rb
+#	app/models/enrolled_in.rb
+#	app/models/event.rb
+#	app/models/user.rb
+#	app/views/devise/
+#	app/views/events/
+#	config/initializers/devise.rb
+#	config/initializers/simple_form.rb
+#	config/initializers/simple_form_bootstrap.rb
+#	config/locales/devise.en.yml
+#	config/locales/simple_form.en.yml
+#	db/migrate/20130205220252_devise_create_users.rb
+#	db/migrate/20130205223208_add_user_id_to_courses.rb
+#	db/migrate/20130206020651_fix_course.rb
+#	db/migrate/20130206022659_create_events.rb
+#	db/migrate/20130206024308_create_enrolled_ins.rb
+#	db/migrate/20130206032206_fix_events.rb
+#	lib/templates/
+#	test/fixtures/enrolled_ins.yml
+#	test/fixtures/events.yml
+#	test/fixtures/users.yml
+#	test/functional/events_controller_test.rb
+#	test/unit/enrolled_in_test.rb
+#	test/unit/event_test.rb
+#	test/unit/helpers/events_helper_test.rb
+#	test/unit/user_test.rb
+

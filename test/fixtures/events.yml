@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  due_date: 2013-02-05
+  worth: 1.5
+  achieved: 1.5
+
+two:
+  name: MyString
+  description: MyText
+  due_date: 2013-02-05
+  worth: 1.5
+  achieved: 1.5

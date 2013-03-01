@@ -4,6 +4,11 @@ Kalindar::Application.routes.draw do
   devise_for :users
 
   resources :courses
+  
+  #authenticated :user do
+#	root :to => 'courses#index'
+ # end
+
   root to: 'courses#index'
   
   # The priority is based upon order of creation:

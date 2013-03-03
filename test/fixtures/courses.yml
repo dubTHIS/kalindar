@@ -3,11 +3,9 @@
 one:
   name: MyText
   description: MyText
-  id: MyString
   school: MyText
 
 two:
   name: MyText
   description: MyText
-  id: MyString
   school: MyText

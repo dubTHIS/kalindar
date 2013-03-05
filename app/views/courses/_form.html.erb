@@ -10,8 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+  <%=  f.input :course_code %>
   <%= f.input :name %>
+  <%= f.input :school, :as => :hidden, :input_html => { :value => current_user.get_school } %>
   <%= f.input :description %>
   <div class="form-actions">
     <%= f.button :submit %>

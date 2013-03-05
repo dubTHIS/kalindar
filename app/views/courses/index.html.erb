@@ -6,8 +6,8 @@
 
 <% @courses.each do |course| %>
 <div class="course">
-  <strong><%= course.name %></strong>
-  <p><%= course.description %></p>
+  <strong><%= course.course_code %></strong>
+  <p><%= course.name %></p>
   <div class="meta">
     <%= link_to time_ago_in_words(course.created_at) + " ago", course %>
     <span class="admin">

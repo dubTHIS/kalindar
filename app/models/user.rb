@@ -19,6 +19,11 @@ class User < ActiveRecord::Base
   has_many :courses, :through => :enrolled_ins
 
   def full_name
+	
     first_name + " " + last_name
+  end
+  
+  def get_school
+	school
   end
 end

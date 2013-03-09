@@ -2,7 +2,13 @@
   <h1>All Courses</h1>
 </div>
 
-<%= link_to "Add a New Course", new_course_path, class: "btn btn-success " %>
+<div>
+  <strong>To add a new course enter in your course code:</strong>
+  <%= form_tag courses_path, :method => 'get', html: {class: "form-horizontal"} do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Add", :name => nil %>
+  <% end %>
+<div>
 
 <% @courses.each do |course| %>
 <div class="course">

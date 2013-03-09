@@ -1,4 +1,12 @@
 Kalindar::Application.routes.draw do
+  get "static_pages/home"
+
+  get "static_pages/help"
+
+  get "static_pages/about"
+
+  get "static_pages/contact"
+
   resources :events
 
   devise_for :users
@@ -13,11 +21,27 @@ Kalindar::Application.routes.draw do
   
  
   
-  #authenticated :user do
-#	root :to => 'courses#index'
- # end
+  authenticated :user do
+    root :to => 'courses#index'
+  end
 
-  root to: 'courses#index'
+root to: 'static_pages#home'
+
+resources :enrolled_ins
+
+resources :users do
+    resources :enrolled_ins
+  end
+
+resources :courses do
+  resources :events
+end
+
+resources :courses do
+  collection do
+    get 'search'
+  end
+end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

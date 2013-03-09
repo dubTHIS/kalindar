@@ -25,9 +25,11 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
+    @course = Course.find(params[:course_id])
+    @event.course.build(:course_id => @course.id)
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # show.html.erb
       format.json { render json: @event }
     end
   end

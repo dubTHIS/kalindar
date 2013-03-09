@@ -20,6 +20,6 @@
   <%= @course.school %>
 </p>
 
-
+<%= link_to 'Add Event', new_event_path(:course_id => @course.id) %>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

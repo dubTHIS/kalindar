@@ -1,3 +1,3 @@
 class Event < ActiveRecord::Base
-	belongs_to :courses
+	belongs_to :course
 end

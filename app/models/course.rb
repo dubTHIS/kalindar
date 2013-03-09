@@ -5,4 +5,12 @@ class Course < ActiveRecord::Base
 	
 	validates :name, presence: true
 	validates :course_code, presence: true
+
+	def self.search(search)
+	  	if search
+	    	find(:all, :conditions => ['course_code LIKE ?', "%#{search}%"])
+	  	else
+	    	find(:all)
+	  	end
+	end
 end

@@ -1,0 +1,13 @@
+<% provide(:title, 'Home') %>
+<div class="row-fluid">
+	<div class="span4">
+		<div class="center">
+			<%= link_to image_tag("logo.png", alt: "Kalindar"), 'http://kalindar.com' %>
+		</div>
+	</div>
+	<div class="span8 well">
+		<h1>Welcome to Kalindar</h1>
+		<p>A new way to organize your life as a student and make sure you never miss a deadline again!</p>
+		<%= link_to "Sign up now!", 'register', class: "btn btn-large btn-primary" %>
+	</div>
+</div>

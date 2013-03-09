@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   
   validates :last_name, presence: true
   
-  validates :profile_name, presence: true
+  validates :profile_name, presence: true, uniqueness: true
 					
   has_many :enrolled_ins
   has_many :courses, :through => :enrolled_ins

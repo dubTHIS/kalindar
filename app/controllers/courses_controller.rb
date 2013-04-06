@@ -14,7 +14,9 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.search(params[:search])
     if @courses.empty?
-      redirect_to { render action: "new", notice: 'No courses found with that course code, please create it'}
+      format.html { render action: "new", notice: 'No courses found with that course code, please create it'}
+    else
+      format.html { redirect_to @course }
   end
   # GET /courses/search
   def search

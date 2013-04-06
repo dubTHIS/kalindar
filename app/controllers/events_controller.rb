@@ -2,12 +2,15 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = User.Events.all
+    @events_by_date = @events.group_by(&:published_on)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    #@events = Event.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-    end
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.json { render json: @events }
+    #end
   end
 
   # GET /events/1

@@ -1,15 +1,15 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
   	<div class="container">
-    	<%= link_to "Kalindar", static_pages_home_path, id: "logo" %>
+    	<%= link_to "Kalindar", root_path, id: "logo" %>
 	    <ul class="nav">
 	    	<% if user_signed_in? %>
 	      		<li><%= link_to "My Courses", courses_path %></li>
 	      		<li><%= link_to "Manage", new_course_path %></li>
       		<% else %>
-      			<li><%= link_to "About", static_pages_about_path %></li>
-      			<li><%= link_to "Help", static_pages_help_path %></li>
-      			<li><%= link_to "Contact", static_pages_contact_path %></li>
+      			<li><%= link_to "About", about_path %></li>
+      			<li><%= link_to "Help", help_path %></li>
+      			<li><%= link_to "Contact", contact_path %></li>
   			<% end %>
 	    </ul>
 	    <ul class="nav pull-right">

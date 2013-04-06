@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: courses
+#
+#  name        :string(255)
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  school      :string(255)
+#  course_code :string(255)
+#  id          :integer          not null, primary key
+#
+
 class Course < ActiveRecord::Base
 	has_many :enrolled_ins
 	has_many :users, :through => :enrolled_ins

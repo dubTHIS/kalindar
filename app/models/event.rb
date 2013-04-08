@@ -14,5 +14,11 @@
 #
 
 class Event < ActiveRecord::Base
-	belongs_to :course
+	belongs_to :course, :class_name => "Course", :foreign_key => "course_id"
+
+	validates :course, presence: true
+	validates :name, presence: true
+	validates :due_date, presence: true
+
+	default_scope order: 'events.due_date DESC'
 end

@@ -1,30 +1,27 @@
 class CoursesController < ApplicationController
 	before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
-  # GET /courses
-  # GET /courses.json
 
-  #def index
-  #  @courses = Course.all
-#
-   # respond_to do |format|
-   #   format.html # index.html.erb
-   #   format.json { render json: @courses }
-   # end
- # end    
+  # GET /courses
+  # GET /courses.json 
   def index
-    @courses = Course.search(params[:search])
-    if @courses.empty?
-      format.html { render action: "new", notice: 'No courses found with that course code, please create it'}
-    else
-      format.html { redirect_to @course }
+    @courses = Course.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @course }
+    end
   end
+
   # GET /courses/search
   def search
     @courses = Course.search(params[:search])
-
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @courses }
+      if @courses.empty?
+        format.html { redirect_to new_course_path, notice: 'No courses found with that course code, please create it.'}
+        format.json
+      else
+        format.html # search.html.erb
+        format.json { render json: @courses }
+      end
     end
   end
 

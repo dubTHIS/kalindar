@@ -5,3 +5,7 @@
 $ ->
 	$('.course').hover (event) ->
 		$(this).toggleClass("hover")
+
+jQuery ->
+  $('#event_due_date').datepicker
+    dateFormat: 'yy-mm-dd'

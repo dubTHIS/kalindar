@@ -52,9 +52,11 @@ textarea {
 /* footer */
 
 footer {
+  margin: 0 auto;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
+  width: 90%;
   color: #999;
 }
 

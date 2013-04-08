@@ -1,3 +1,21 @@
-<h1>Enter in the Course Code</h1>
+<h1>Select the course you would like to enroll in</h1>
 
-<%= link_to 'Back', courses_path %>
+<div>
+	<strong>To add a new course enter in your course code:</strong>
+  	<%= form_tag search_courses_path, :method => 'get', html: {class: "form-horizontal"} do %>
+      	<%= text_field_tag :search, params[:search] %>
+      	<%= submit_tag "Add", :name => nil %>
+  	<% end %>
+</div>
+
+<p>If you do not see the course you want here, please <%= link_to 'Create it!', new_course_path %></p>
+
+<% @courses.each do |course| %>
+  <div class="course">
+    <strong><%= course.course_code %></strong>
+    <p><%= course.name %></p>
+    <div class="meta">
+      <%= link_to 'Add Course', new_enrolled_in_path(:course_id => course.id) %>
+    </div>
+  </div>
+<% end %>

@@ -2,15 +2,17 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = User.Events.all
-    @events_by_date = @events.group_by(&:published_on)
+    @events = Event.all
+    @events_by_date = @events.group_by(&:due_date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
-    #@events = Event.all
+  end
 
-    #respond_to do |format|
-    #  format.html # index.html.erb
-    #  format.json { render json: @events }
-    #end
+  #/courses/:course_id/events/:event_id/list(.:form
+  # GET event/list
+  def list
+  #  @events = Event.all
+  #  @events_by_date = @events.group_by(&:due_date)
+  #  @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   # GET /events/1
@@ -27,9 +29,8 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @event = Event.new
     @course = Course.find(params[:course_id])
-    @event.course.build(:course_id => @course.id)
+    @event = @course.events.new(params[:event])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,17 +46,20 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event])
+    @course = Course.find(params[:course_id])
+    @event = @course.events.create(params[:event])
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to course_path(@course)
+
+    #respond_to do |format|
+    #  if @event.save
+    #    format.html { redirect_to @event, notice: 'Event was successfully created.' }
+    #    format.json { render json: @event, status: :created, location: @event }
+    #  else
+    #    format.html { render action: "new" }
+    #    format.json { render json: @event.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PUT /events/1

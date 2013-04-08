@@ -3,11 +3,7 @@
 </div>
 
 <div>
-  <strong>To add a new course enter in your course code:</strong>
-  <%= form_tag courses_path, :method => 'get', html: {class: "form-horizontal"} do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Add", :name => nil %>
-  <% end %>
+  <%= link_to "Add a Course!", search_courses_path, class: "btn btn-large btn-primary" %>
 <div>
 
 <% @courses.each do |course| %>
@@ -18,7 +14,8 @@
     <%= link_to time_ago_in_words(course.created_at) + " ago", course %>
     <span class="admin">
       | <%= link_to "Edit", edit_course_path(course) %> |
-      <%= link_to "Delete", course, method: :delete, data: { confirm: "Are you sure you want to delete this course?"} %>
+        <%= link_to "Delete", course, method: :delete, data: { confirm: "Are you sure you want to delete this course?"} %> |
+        <%= link_to "Add Events", new_course_event_path(course) %>
     </span>
   </div>
 </div>

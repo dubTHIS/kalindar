@@ -4,17 +4,13 @@ Kalindar::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
 
-  resources :events
-
   devise_for :users
   
   devise_scope :user do
-	get 'register', to: 'devise/registrations#new', as: :register
-	get 'login', to: 'devise/sessions#new', as: :login
-	get 'logout', to: 'devise/sessions#destroy', as: :logout
+	 get 'register', to: 'devise/registrations#new', as: :register
+	 get 'login', to: 'devise/sessions#new', as: :login
+	 delete 'logout', to: 'devise/sessions#destroy', as: :logout
   end
-
-  resources :courses
   
  
   
@@ -24,17 +20,16 @@ Kalindar::Application.routes.draw do
 
 root to: 'static_pages#home'
 
-resources :enrolled_ins
+resources :enrolled_ins, :only => [:new, :create, :destroy]
 
-resources :users do
-    resources :enrolled_ins
+resources :users
+
+resources :courses do
+  resources :events do
+    collection do
+      get 'list'
+    end
   end
-
-resources :courses do
-  resources :events
-end
-
-resources :courses do
   collection do
     get 'search'
   end

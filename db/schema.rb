@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303194359) do
+ActiveRecord::Schema.define(:version => 20130408213754) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(:version => 20130303194359) do
     t.datetime "updated_at",  :null => false
     t.integer  "course_id"
   end
+
+  create_table "user_events", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_events", ["event_id"], :name => "index_user_events_on_event_id"
+  add_index "user_events", ["user_id"], :name => "index_user_events_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

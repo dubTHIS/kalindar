@@ -21,6 +21,7 @@ Kalindar::Application.routes.draw do
 root to: 'static_pages#home'
 
 resources :enrolled_ins, :only => [:new, :create, :destroy]
+resources :user_events, :only => [:new, :create, :destroy]
 
 resources :users
 
@@ -32,6 +33,8 @@ resources :courses do
   end
   collection do
     get 'search'
+    get 'search_event'
+    get 'create_event'
   end
 end
   

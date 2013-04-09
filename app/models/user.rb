@@ -38,8 +38,10 @@ class User < ActiveRecord::Base
   
   validates :profile_name, presence: true, uniqueness: true
 					
-  has_many :enrolled_ins
+  has_many :enrolled_ins, :dependent => :destroy
   has_many :courses, :through => :enrolled_ins
+  has_many :user_events, :dependent => :destroy
+  has_many :events, :through => :user_events
 
   def full_name
 	

@@ -31,13 +31,13 @@ class EnrolledInsController < ApplicationController
 	end
   end
 
-  def destroy
-  	@enrolled_in = EnrolledIn.find(params[:id])
-    @enrolled_in.destroy
+  def remove
+    course = Course.find(params[:course])
+    user = @event.users.find(current_user)
 
-    respond_to do |format|
-      format.html { redirect_to root_url }
-      format.json { head :no_content }
+    if user
+      course.users.delete(user)
+      redirect_to courses_path, notice: 'Event Removed.'
     end
   end
 end

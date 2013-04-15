@@ -31,7 +31,7 @@ class UserEventsController < ApplicationController
     end
   end
 
-  def destroy
+  def remove
     event = Event.find(params[:event])
     user = @event.users.find(current_user)
 

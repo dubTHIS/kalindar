@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = current_user.events.all
     @events_by_date = @events.group_by(&:due_date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
@@ -30,12 +30,9 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @course = Course.find(params[:course_id])
-    @event = @course.events.new(params[:event])
+    @event = @course.events.create(params[:event])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
-    end
+    redirect_to new_user_event_path(:event => @event.id)
   end
 
   # GET /events/1/edit
@@ -49,7 +46,7 @@ class EventsController < ApplicationController
     @course = Course.find(params[:course_id])
     @event = @course.events.create(params[:event])
 
-    redirect_to course_path(@course)
+    redirect_to new_user_event_path(:event => @event.id)
 
     #respond_to do |format|
     #  if @event.save

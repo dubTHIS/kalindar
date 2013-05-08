@@ -3,24 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #events .calendar {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 8px;
   width: 100%;
 
   td, th {
     font-family: "Lucida Grande", arial, helvetica, sans-serif;
     font-size: 10px;
     padding: 6px;
-    border: 1px solid #999;
+    text-transform: uppercase;
   }
 
   th {
-    background: #DDD;
+    background: #FFF;
+    border-bottom: 1px solid #C50C23;
     color: #666;
     text-align: center;
     width: 14.2857142857143%;
   }
 
   td {
+    box-shadow: -2px -2px 2px #BFBAB0;
     background: #FFF;
     color: #777;
     height: 80px;
@@ -29,6 +32,10 @@
   }
 
   .notmonth, .notmonth a { color: #CCC; }
+  .notmonth { 
+    background-color: #DDD; 
+    box-shadow: 2px 2px 2px #BFBAB0;
+  }
   .today { background-color: #D7F2FF; }
 }
 
@@ -36,7 +43,8 @@
   margin: 0;
   padding-bottom: 10px;
   text-align: center;
-  font-size: 22px;
+  text-transform: uppercase;
+  font-size: 26px;
   a {
     text-decoration: none;
     padding: 0 10px;

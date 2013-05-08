@@ -1,0 +1,18 @@
+<h1>Create Event</h1>
+<%= form_for([@course, @course.events.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class='field'>
+  	<%= f.label :due_date %><br />
+    <%= f.text_field :due_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

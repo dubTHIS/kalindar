@@ -15,6 +15,8 @@
 
 class Event < ActiveRecord::Base
 	belongs_to :course, :class_name => "Course", :foreign_key => "course_id"
+	has_many :user_events, :dependent => :destroy
+  	has_many :users, :through => :user_events
 
 	validates :course, presence: true
 	validates :name, presence: true

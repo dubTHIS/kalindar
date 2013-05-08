@@ -1,9 +1,10 @@
 <h1>Select the Events you wish to add</h1>
 <p>If you do not see any that you like please create your own event for this course.</p>
-<%= link_to 'Create Event', search_courses_path %>
+<%= link_to 'Create Event', create_event_courses_path(:id => @course.id) %>
 
 <div class='well'>
 	<% @course.events.each do |event| %>
 		<p><%= event.name %> - <%= event.due_date %></p>
+		<%= link_to 'Add Event', new_user_event_path(:event => event.id) %>
 	<% end %> 
 </div>

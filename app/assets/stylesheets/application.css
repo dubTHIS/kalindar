@@ -32,21 +32,16 @@ textarea {
 	margin-top: 10px;
 }
 
-#logo {
-  float: left;
-  margin-right: 10px;
+.logo {
+  /*margin-right: 10px;
   font-size: 1.7em;
   color: #000;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
-  line-height: 1;
-}
-
-#logo:hover {
-  color: #000;
-  text-decoration: none;
+  line-height: 1;*/
+  max-height: 30px;
 }
 
 /* footer */

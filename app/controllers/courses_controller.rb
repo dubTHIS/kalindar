@@ -25,6 +25,23 @@ class CoursesController < ApplicationController
     end
   end
 
+  def search_event
+    @course = Course.find(params[:id])
+
+    respond_to do |format|
+      format.html # search_event.html.erb
+      format.json { render json: @course }
+    end
+  end
+
+  def create_event
+    @course = Course.find(params[:id])
+
+    respond_to do |format|
+      format.html # create_event.html.erb
+      format.json { render json: @course }
+    end
+  end
   # GET /courses/1
   # GET /courses/1.json
   def show
@@ -59,7 +76,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to new_enrolled_id_path(:course => @course.id), notice: 'Course was successfully created.' }
         format.json { render json: @course, status: :created, location: @course }
       else
         format.html { render action: "new" }

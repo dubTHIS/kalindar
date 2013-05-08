@@ -1,0 +1,19 @@
+Mon, 15 Apr 2013 09:55:40 -0400
+doc/README_FOR_APP	Tue, 26 Feb 2013 18:23:26 -0500
+app/controllers/application_controller.rb	Tue, 26 Feb 2013 18:23:26 -0500
+app/controllers/courses_controller.rb	Mon, 08 Apr 2013 22:30:24 -0400
+app/controllers/enrolled_ins_controller.rb	Sun, 07 Apr 2013 20:46:50 -0400
+app/controllers/events_controller.rb	Mon, 08 Apr 2013 22:56:18 -0400
+app/controllers/static_pages_controller.rb	Fri, 08 Mar 2013 17:49:28 -0500
+app/controllers/user_events_controller.rb	Mon, 08 Apr 2013 23:15:29 -0400
+app/helpers/application_helper.rb	Sat, 09 Mar 2013 09:10:56 -0500
+app/helpers/calendar_helper.rb	Fri, 05 Apr 2013 18:51:13 -0400
+app/helpers/courses_helper.rb	Tue, 26 Feb 2013 18:23:26 -0500
+app/helpers/events_helper.rb	Tue, 26 Feb 2013 19:41:39 -0500
+app/helpers/sessions_helper.rb	Sat, 06 Apr 2013 16:43:18 -0400
+app/helpers/static_pages_helper.rb	Fri, 08 Mar 2013 17:24:29 -0500
+app/models/course.rb	Mon, 08 Apr 2013 17:43:13 -0400
+app/models/enrolled_in.rb	Sat, 09 Mar 2013 11:54:57 -0500
+app/models/event.rb	Mon, 08 Apr 2013 17:42:31 -0400
+app/models/user.rb	Mon, 08 Apr 2013 17:43:19 -0400
+app/models/user_event.rb	Mon, 08 Apr 2013 22:36:02 -0400

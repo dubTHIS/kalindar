@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
   	<div class="container">
-    	<%= link_to "Kalindar", root_path, id: "logo" %>
+    	<%= link_to image_tag("logo_small.jpg", :border=>0, :class=>'logo'), root_path, :class=>"brand" %>
 	    <ul class="nav">
 	    	<% if user_signed_in? %>
 	      		<li><%= link_to "My Courses", courses_path %></li>

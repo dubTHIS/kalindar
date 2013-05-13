@@ -4,7 +4,7 @@ Kalindar::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
 
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   
   devise_scope :user do
 	 get 'register', to: 'devise/registrations#new', as: :register
@@ -33,14 +33,12 @@ resources :users
 
 resources :courses do
   resources :events do
-    collection do
-      get 'list'
-    end
   end
   collection do
     get 'search'
     get 'search_event'
     get 'create_event'
+    get :list, as: :dayview
   end
 end
   

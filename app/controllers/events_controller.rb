@@ -7,14 +7,6 @@ class EventsController < ApplicationController
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
-  #/courses/:course_id/events/:event_id/list(.:form
-  # GET event/list
-  def list
-  #  @events = Event.all
-  #  @events_by_date = @events.group_by(&:due_date)
-  #  @date = params[:date] ? Date.parse(params[:date]) : Date.today
-  end
-
   # GET /events/1
   # GET /events/1.json
   def show

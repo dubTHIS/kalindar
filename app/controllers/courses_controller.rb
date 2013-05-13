@@ -42,6 +42,13 @@ class CoursesController < ApplicationController
       format.json { render json: @course }
     end
   end
+
+  def list
+    @events = current_user.events.all
+    @events_by_date = @events.group_by(&:due_date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  end
+
   # GET /courses/1
   # GET /courses/1.json
   def show

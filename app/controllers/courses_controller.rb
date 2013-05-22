@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json 
   def index
-    @courses = Course.all
+    @courses = current_user.courses.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @course }

@@ -5,7 +5,8 @@
 	    <ul class="nav">
 	    	<% if user_signed_in? %>
 	      		<li><%= link_to "My Courses", courses_path %></li>
-	      		<li><%= link_to "Manage", new_course_path %></li>
+	      		<li><%= link_to "New Course", new_course_path %></li>
+	      		<li><%= link_to "New Event", new_course_path %></li>
       		<% else %>
       			<li><%= link_to "About", about_path %></li>
       			<li><%= link_to "Help", help_path %></li>

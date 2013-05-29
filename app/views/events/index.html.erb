@@ -6,15 +6,20 @@
     <%= link_to ">", date: @date.next_month %>
   </h2>
   <%= calendar @date do |date| %>
-    <%= date.day %>
-    <% if @events_by_date[date] %>
-      <ul>
-        <% @events_by_date[date].each do |event| %>
-          <li><%= link_to event.name + ' ' + event.course.name, event.course %></li>
-        <% end %>
-      </ul>
+    <%= link_to (dayview_courses_path( date: date)) do %>
+      <div id="filler">
+      <div id='daylink'><%= date.day %></div>
+      <% if @events_by_date[date] %>
+
+        <ul>
+          <% @events_by_date[date].each do |event| %>
+            <li><%= link_to event.course.course_code + ' ' + event.name, event.course %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
     <% end %>
   <% end %>
 </div>
-<p>Switch View to <%= link_to 'Day View', courses_path %></p>
+<p>Switch View to <%= link_to 'Day View', dayview_courses_path %></p>
 

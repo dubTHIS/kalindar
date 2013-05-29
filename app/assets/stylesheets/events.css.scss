@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 #events .calendar {
   border-collapse: separate;
   border-spacing: 8px;
@@ -18,7 +19,7 @@
     background: #FFF;
     border-bottom: 1px solid #C50C23;
     color: #666;
-    text-align: center;
+    text-align: left;
     width: 14.2857142857143%;
   }
 
@@ -54,5 +55,11 @@
 
 #events ul {
   font-size: 11px;
-  padding-left: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+#filler {
+  width: 100%;
+  heigt: 100%;
 }

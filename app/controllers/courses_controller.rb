@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json 
   def index
-    @courses = Course.all
+    @courses = current_user.courses.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @course }
@@ -42,6 +42,13 @@ class CoursesController < ApplicationController
       format.json { render json: @course }
     end
   end
+
+  def list
+    @events = current_user.events.all
+    @events_by_date = @events.group_by(&:due_date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  end
+
   # GET /courses/1
   # GET /courses/1.json
   def show

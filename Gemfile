@@ -14,6 +14,9 @@ end
 
 gem 'devise'
 gem 'simple_form'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'faraday'
 
 group :development do
   gem 'annotate', '2.5.0'

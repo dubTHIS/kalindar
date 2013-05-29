@@ -1,19 +1,24 @@
 <div class="page-header">
   <h1>All Courses</h1>
 </div>
-
 <div>
   <%= link_to "Add a Course!", search_courses_path, class: "btn btn-large btn-primary" %>
 <div>
-<% current_user.courses.each do |course| %>
-  <div class="course">
-    <strong><%= course.course_code %></strong>
-    <p><%= course.name %></p>
-    <div class="meta">
-      <%= link_to 'View', course %>
-      <span class="admin">
-        | <%= link_to "Edit", edit_course_path(course) %> |
-      </span>
-    </div>
-  </div>
-<% end %>
+<br>
+<ul id="course-list">
+  <% current_user.courses.each do |course| %>
+    <li class="course">
+      <div class="course-header">
+        <strong><%= course.course_code %></strong> - <%= course.name %>
+      </div>
+      <div class="course-details"><%= course.description %><br />
+        <div class="meta">
+          <%= link_to 'View', course %>
+          <span class="admin">
+            | <%= link_to "Edit", edit_course_path(course) %> |
+          </span>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

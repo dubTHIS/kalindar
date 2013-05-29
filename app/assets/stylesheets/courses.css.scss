@@ -2,27 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.course {
-	border-bottom: solid 1px #CCC;
-	padding: 5px 0;
+#course-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
-.course p {
-	margin: 4px 0;
+#course-list > li {
+    padding: 0;
+    margin: 0;
+    clear: both;
+    background: #ececec;
 }
 
-.course.hover {
-	background: #FAFAFA;
-}
-.course .admin {
-	display: none;
+#course-list > li:nth-child(2n) {
+    background: #cccccc;
 }
 
-.course.hover .admin {
+#course-list .course-header {
+    padding: 19px 0px 17px 10px;
+}
+
+#course-list .course-details {
+    clear: both;
+    background: #333333;
+    color: white;
+    padding: 8px;
+    display: none;
+}
+
+#course-list .course-details:hover {
 	display: inline;
 }
 
-.descr {
-	margin-top: 6px;
-	padding-left: 4px;
+#course-list .course-details a {
+    color: white;
+    text-decoration: none;
+    font: bold 0.8em Arial;
+    margin: 6px 0 0 0;
 }

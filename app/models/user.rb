@@ -47,6 +47,10 @@ class User < ActiveRecord::Base
 	
     first_name + " " + last_name
   end
+
+  def get_school
+    school
+  end
   
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|

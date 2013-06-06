@@ -20,7 +20,7 @@
 	    	<% else %>
 	    		<li><%= link_to "Register", register_path %></li>
 	    		<li><%= link_to "Login", login_path %></li>
-	    		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+	    		<li><%= link_to image_tag('fbsignin.png', :class=>'fb'), user_omniauth_authorize_path(:facebook) %></li>
 	    	<% end %>
 	    </ul>
     </div>

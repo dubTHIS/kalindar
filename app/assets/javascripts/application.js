@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require_tree .
+
+$(document).ready(console.log($('.container').length));
+
+/*.click(function(){
+	$('#overlay').fadeIn();
+});*/

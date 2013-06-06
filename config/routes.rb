@@ -21,9 +21,11 @@ Kalindar::Application.routes.draw do
 root to: 'static_pages#home'
 
 resources :enrolled_ins, :only => [:new] do
-  get 'remove'
+  collection do
+    get 'remove'
+  end
 end
-resources :user_events, :only => [:new] do
+resources :user_events, :only => [:new,] do
   collection do
     get 'remove'
   end

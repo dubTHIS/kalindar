@@ -20,8 +20,9 @@ class UserEventsController < ApplicationController
     user = current_user
 
     if user
-      user.event.delete(event)
-      redirect_to courses_path, notice: 'Event Removed.'
+      course = event.course
+      user.events.delete(event)
+      redirect_to course, notice: 'Event Removed.'
     end
   end
 end

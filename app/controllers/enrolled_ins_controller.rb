@@ -20,7 +20,12 @@ class EnrolledInsController < ApplicationController
     user = current_user
 
     if user
-      user.course.delete(course)
+      user.events.each do |event|
+        if event.course = course
+          user.events.delete(event)
+        end
+      end
+      user.courses.delete(course)
       redirect_to courses_path, notice: 'Course Removed.'
     end
   end

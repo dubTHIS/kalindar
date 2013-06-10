@@ -10,6 +10,7 @@ $('.course').hover (event) ->
 jQuery ->
   $('#event_due_date').datepicker
     dateFormat: 'yy-mm-dd'
+    minDate: new Date()
 
 $ ->
 	$("#courselist li").click ->
@@ -25,4 +26,4 @@ toggleDetailsDisplay = (listItem) ->
          
     $(listItem).find(".course-details").slideDown()
         
-    activeItem = listItem;
+    activeItem = listItem

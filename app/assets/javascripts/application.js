@@ -15,8 +15,19 @@
 //= require jquery.ui.datepicker
 //= require_tree .
 
-$(document).ready(console.log($('.container').length));
-
-/*.click(function(){
-	$('#overlay').fadeIn();
-});*/
+// Wait until the DOM has loaded before querying the document
+$(document).ready(function(){
+	$('a#overlayAddEvent').click(function(e){
+		$('#overlay').show();
+		$('#modal').show();
+		$('#modal').css({
+			display:'block',
+			left:( $(window).width() - $('#modal').width() )/2,
+			top:( $(window).height() - $('#modal').height() )/2 -20,
+		});
+	});
+	$('a#close').click(function(){
+		$('#modal').hide();
+		$('#overlay').hide();
+	})
+});

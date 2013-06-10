@@ -8,7 +8,6 @@
   <%= calendar @date do |date| %>
       <div id="filler">
       <div id="daylink"><%= link_to date.day, dayview_courses_path(date: date) %></div>
-      <div><a href="#" id="overlayAddEvent"><i class="icon-plus"></i></a></div>
       <% if @events_by_date[date] %>
 
         <ul>
@@ -21,12 +20,4 @@
   <% end %>
 </div>
 <p>Switch View to <%= link_to 'Day View', dayview_courses_path %></p>
-
-<div id="overlay" class="overlay">
-  <h3>Which course do you want to add an event to:</h3>
-  <% current_user.courses.each do |course| %>
-    <%= link_to course.course_code, create_event_courses_path(:id => course.id) %>
-    <br>
-  <% end %>
-</div>
 

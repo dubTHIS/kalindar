@@ -77,44 +77,54 @@ textarea {
 
 /* Add event overlay */
 
-/* the overlayed element */
-.overlay {
-    position: fixed;
-    top: 30%;
-    left: 30%;
-    margin: 0 auto;
-    padding: 2%;
- 
-    /* must be initially hidden */
-    /*display:none;*/
- 
-    /* place overlay on top of other elements */
-    z-index:10000;
- 
-    /* styling */
-    background-color:#333;
-    color: #FFF;
- 
-    width:675px;
-    min-height:200px;
-    border:1px solid #666;
- 
-    /* CSS3 styling for latest browsers */
-    -moz-box-shadow:0 0 90px 5px #000;
-    -webkit-box-shadow: 0 0 90px #000;
-}
- 
-/* close button positioned on upper right corner */
-.overlay .close {
-    background-image:url(/media/img/overlay/close.png);
-    position:absolute;
-    right:-15px;
-    top:-15px;
-    cursor:pointer;
-    height:35px;
-    width:35px;
+#overlay {
+  position:fixed; 
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#000;
+  opacity:0.5;
+  filter:alpha(opacity=50);
+  display: none;
 }
 
+#modal {
+  position:absolute;
+  top: 15;
+  left: 15;
+  background:url(tint20.png) 0 0 repeat;
+  background:rgba(0,0,0,0.2);
+  border-radius:14px;
+  padding:8px;
+  display: none;
+  z-index: 1000;
+}
+
+#content {
+  border-radius:8px;
+  background:#fff;
+  padding:20px;
+}
+
+#close {
+  position:absolute;
+  background:url(/assets/close.png) 0 0 no-repeat;
+  width:24px;
+  height:27px;
+  display:block;
+  text-indent:-9999px;
+  top:-7px;
+  right:-7px;
+}
+
+
+/* ad */
+#ad {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #666;
+}
 /* footer */
 
 footer {

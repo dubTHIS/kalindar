@@ -1,0 +1,13 @@
+<div id="overlay"></div>
+<div id="modal">
+	<div id="content">
+	  <h3>Which course do you want to add an event to:</h3>
+	  <% if user_signed_in? %>
+		  <% current_user.courses.each do |course| %>
+		    <%= link_to course.course_code + " - " + course.name, create_event_courses_path(:id => course.id) %>
+		    <br>
+		  <% end %>
+	  <% end %>
+	</div>
+	<a id="close"  href="#">close</a>
+</div>

@@ -1,16 +1,16 @@
 <h1>Create Event</h1>
 <%= form_for([@course, @course.events.build]) do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br />
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description %><br />
   </div>
   <div class='field'>
-  	<%= f.label :due_date %><br />
-    <%= f.text_field :due_date %>
+  	<%= f.label :due_date %>
+    <%= f.text_field :due_date %><br />
   </div>
   <div class="actions">
     <%= f.submit %>

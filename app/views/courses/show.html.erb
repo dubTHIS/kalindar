@@ -36,7 +36,7 @@
 			<% current_user.events.each do |event| %>
 				<% if event.course.id == @course.id %>
 					<div class="course">
-						<p><%= event.name %> - <%= event.due_date %></p>
+						<%= link_to event.name + " - " + event.due_date.to_s, course_event_path(@course, event) %>
 						<span class="admin">
 							<%= link_to 'remove event', remove_user_events_path(:event => event.id) %>
 						</span>

@@ -15,16 +15,4 @@
   <%= @event.due_date %>
 </p>
 
-<p>
-  <b>Worth:</b>
-  <%= @event.worth %>
-</p>
-
-<p>
-  <b>Achieved:</b>
-  <%= @event.achieved %>
-</p>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class="fb-comments" data-href=""+<%= "http://#{request.host+request.fullpath}" %>+"" data-width="470" data-num-posts="10"></div>

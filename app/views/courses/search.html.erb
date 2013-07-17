@@ -15,7 +15,7 @@
     <strong><%= course.course_code %></strong>
     <p><%= course.name %></p>
     <div class="meta">
-      <%= link_to 'Add Course', new_enrolled_in_path(:course => course.id) %>
+      <%= link_to 'Add Course', add_enrolled_ins_path(:course => course.id) %>
     </div>
   </div>
 <% end %>

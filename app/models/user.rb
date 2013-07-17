@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
   
   validates :profile_name, presence: true, uniqueness: true
 					
+  has_many :activities
   has_many :enrolled_ins, :dependent => :destroy
   has_many :courses, :through => :enrolled_ins
   has_many :user_events, :dependent => :destroy

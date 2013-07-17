@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     @events = current_user.events.all
     @events_by_date = @events.group_by(&:due_date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @activities = Activity.order("created_at desc")
   end
 
   # GET /events/1
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
     @course = Course.find(params[:course_id])
     @event = @course.events.create(params[:event])
 
-    redirect_to new_user_event_path(:event => @event.id)
+    redirect_to add_user_event_path(:event => @event.id)
   end
 
   # GET /events/1/edit
@@ -38,7 +39,7 @@ class EventsController < ApplicationController
     @course = Course.find(params[:course_id])
     @event = @course.events.create(params[:event])
 
-    redirect_to new_user_event_path(:event => @event.id)
+    redirect_to add_user_event_path(:event => @event.id)
 
     #respond_to do |format|
     #  if @event.save

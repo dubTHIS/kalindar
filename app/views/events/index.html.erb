@@ -1,23 +1,36 @@
+<div class="row">
+  <div class="span10">
+    <div id="events">
+      <h2 id="month">
+        <%= link_to "<", date: @date.prev_month %>
+        <%= @date.strftime("%B %Y") %>
+        <%= link_to ">", date: @date.next_month %>
+      </h2>
+      <%= calendar @date do |date| %>
+          <div id="filler">
+          <div id="daylink"><%= link_to date.day, dayview_courses_path(date: date) %></div>
+          <% if @events_by_date[date] %>
 
-<div id="events">
-  <h2 id="month">
-    <%= link_to "<", date: @date.prev_month %>
-    <%= @date.strftime("%B %Y") %>
-    <%= link_to ">", date: @date.next_month %>
-  </h2>
-  <%= calendar @date do |date| %>
-      <div id="filler">
-      <div id="daylink"><%= link_to date.day, dayview_courses_path(date: date) %></div>
-      <% if @events_by_date[date] %>
-
-        <ul>
-          <% @events_by_date[date].each do |event| %>
-            <li><%= link_to event.course.course_code + ' ' + event.name, event.course %></li>
+            <ul>
+              <% @events_by_date[date].each do |event| %>
+                <li><%= link_to event.course.course_code + ' ' + event.name, event.course %></li>
+              <% end %>
+            </ul>
           <% end %>
-        </ul>
+        </div>
       <% end %>
     </div>
-  <% end %>
+    <p>Switch View to <%= link_to 'Day View', dayview_courses_path %></p>
+  </div>
+  <div class="span2">
+    <h1>Activities</h1>
+    <% if @activities %>
+      <% @activities.each do |activity| %>
+        <%= ActivityPresenter.new(activity, self).render_activity %>
+      <% end %>
+    <% else %>
+      <p>No activities to display.</p>
+    <% end %>
+  </div>
 </div>
-<p>Switch View to <%= link_to 'Day View', dayview_courses_path %></p>
 

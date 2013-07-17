@@ -47,6 +47,7 @@ class CoursesController < ApplicationController
     @events = current_user.events.all
     @events_by_date = @events.group_by(&:due_date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @activities = Activity.order("created_at desc")
   end
 
   # GET /courses/1
@@ -83,7 +84,8 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to new_enrolled_in_path(:course => @course.id), notice: 'Course was successfully created.' }
+        track_activity @course
+        format.html { redirect_to add_enrolled_in_path(:course => @course.id), notice: 'Course was successfully created.' }
         format.json { render json: @course, status: :created, location: @course }
       else
         format.html { render action: "new" }
@@ -99,6 +101,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
+        track_activity @course
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
         format.json { head :no_content }
       else

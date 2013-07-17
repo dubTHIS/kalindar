@@ -1,6 +1,10 @@
 class EnrolledInsController < ApplicationController
 
   def new
+
+  end
+
+  def add
   	@course = Course.find(params[:course])
   	@user = current_user
     t = 0
@@ -19,8 +23,10 @@ class EnrolledInsController < ApplicationController
     	@enrolled_in.course_id = @course.id
     	@course.enrolled_ins << @enrolled_in
     	@user.enrolled_ins << @enrolled_in
-    	@enrolled_in.save
-      notice = 'Successfully added course.'
+    	if @enrolled_in.save
+        track_activity @course
+        notice = 'Successfully added course.'
+      end
     else   
       notice = 'You are already enrolled in that course.'
     end

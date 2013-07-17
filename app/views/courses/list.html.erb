@@ -1,17 +1,31 @@
-<h1>Day View</h1>
-<h2 id="day">
-    <%= link_to "<", date: @date.yesterday %>
-    <%= @date.strftime("%d %B %Y") %>
-    <%= link_to ">", date: @date.tomorrow %>
-</h2>
-<% date = @date %>
-<% if @events_by_date[date] %>
-  <ul>
-    <% @events_by_date[date].each do |event| %>
-      <li><%= link_to event.course.course_code + ' ' + event.name, event.course %></li>
+<div class="row-fluid">
+  <div class="span6">
+    <h1>Day View</h1>
+    <h2 id="day">
+        <%= link_to "<", date: @date.yesterday %>
+        <%= @date.strftime("%d %B %Y") %>
+        <%= link_to ">", date: @date.tomorrow %>
+    </h2>
+    <% date = @date %>
+    <% if @events_by_date[date] %>
+      <ul>
+        <% @events_by_date[date].each do |event| %>
+          <li><%= link_to event.course.course_code + ' ' + event.name, event.course %></li>
+        <% end %>
+      </ul>
+    <% else %>
+    	<p>You have no events for today.</p>
     <% end %>
-  </ul>
-<% else %>
-	<p>You have no events for today.</p>
-<% end %>
-<p>Switch View to <%= link_to 'Calendar View', root_url %></p>
+    <p>Switch View to <%= link_to 'Calendar View', root_url %></p>
+  </div>
+  <div class="span6">
+    <h1>Activities</h1>
+    <% if @activities %>
+      <% @activities.each do |activity| %>
+        <%= ActivityPresenter.new(activity, self).render_activity %>
+      <% end %>
+    <% else %>
+      <p>No activities to display.</p>
+    <% end %>
+  </div>
+</div>

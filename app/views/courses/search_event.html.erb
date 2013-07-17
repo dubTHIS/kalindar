@@ -5,6 +5,6 @@
 <div class='well'>
 	<% @course.events.each do |event| %>
 		<p><%= event.name %> - <%= event.due_date %>, Number of People Using: <%= event.users.count %></p>
-		<%= link_to 'Add Event', new_user_event_path(:event => event.id) %>
+		<%= link_to 'Add Event', add_user_events_path(:event => event.id) %>
 	<% end %> 
 </div>

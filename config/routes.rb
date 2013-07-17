@@ -1,5 +1,7 @@
 Kalindar::Application.routes.draw do
 
+  resources :activities
+
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
@@ -23,11 +25,13 @@ root to: 'static_pages#home'
 resources :enrolled_ins, :only => [:new] do
   collection do
     get 'remove'
+    get 'add'
   end
 end
 resources :user_events, :only => [:new,] do
   collection do
     get 'remove'
+    get 'add'
   end
 end
 

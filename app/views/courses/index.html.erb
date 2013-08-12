@@ -9,15 +9,9 @@
   <% current_user.courses.each do |course| %>
     <li class="course">
       <div class="course-header">
-        <strong><%= course.course_code %></strong> - <%= course.name %>
+        <strong><%= course.course_code %></strong> - <%= course.name %>  <%= link_to '', course, :class => "icon-chevron-right pull-right" %><%= link_to '', remove_enrolled_ins_path(:course => course.id), :class => "icon-trash pull-right" %><%= link_to '', edit_course_path(course), :class => "icon-pencil pull-right" %><br />
       </div>
       <div class="course-details"><%= course.description %><br />
-        <div class="meta">
-          <%= link_to 'View', course %>
-          <span class="admin">
-            | <%= link_to "Edit", edit_course_path(course) %> |
-          </span>
-        </div>
       </div>
     </li>
   <% end %>

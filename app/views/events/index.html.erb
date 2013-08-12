@@ -22,7 +22,21 @@
     </div>
     <p>Switch View to <%= link_to 'Day View', dayview_courses_path %></p>
   </div>
+
   <div class="span2">
+    <h1>Upcoming Events</h1>
+    <% if @todos %>
+      <ul>
+        <% @todos[0..4].each do |todo| %>
+          <% if (todo.due_date - @today).numerator() > 0 %>
+            <li><%= link_to todo.course.course_code + ' ' + todo.name + ' ' + (todo.due_date - @today).numerator().to_s() + ' days remaining', todo.course %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <hr>
+
     <h1>Activities</h1>
     <% if @activities %>
       <% @activities.each do |activity| %>

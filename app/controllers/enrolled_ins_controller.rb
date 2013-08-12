@@ -26,6 +26,8 @@ class EnrolledInsController < ApplicationController
     	if @enrolled_in.save
         track_activity @course
         notice = 'Successfully added course.'
+      else
+        notice = 'Adding the event failed, please try again.'
       end
     else   
       notice = 'You are already enrolled in that course.'

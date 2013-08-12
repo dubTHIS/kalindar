@@ -15,4 +15,6 @@
   <%= @event.due_date %>
 </p>
 
+<p>Number of people attending this event: <%= @event.users.count %></p>
+
 <div class="fb-comments" data-href=""+<%= "http://#{request.host+request.fullpath}" %>+"" data-width="470" data-num-posts="10"></div>

@@ -11,11 +11,16 @@
 <p>If you do not see the course you want here, please <%= link_to 'Create it!', new_course_path %></p>
 
 <% @courses.each do |course| %>
-  <div class="course">
-    <strong><%= course.course_code %></strong>
-    <p><%= course.name %></p>
-    <div class="meta">
-      <%= link_to 'Add Course', add_enrolled_ins_path(:course => course.id) %>
+  <% if @current_user.school == course.school %>
+    <div class="course">
+      <div class="row">
+        <div class="span8">
+          <strong><%= course.course_code %></strong>
+          <p><%= course.name %></p>
+        </div>
+        <div class="span4">
+          <%= link_to '', add_enrolled_ins_path(:course => course.id), :class => "icon-plus" %>
+        </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

@@ -48,6 +48,8 @@ class CoursesController < ApplicationController
     @events_by_date = @events.group_by(&:due_date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @activities = Activity.order("created_at desc")
+    @todos = current_user.events.order("due_date desc")
+    @today = Date.today
   end
 
   # GET /courses/1

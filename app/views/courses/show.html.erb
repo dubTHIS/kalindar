@@ -14,24 +14,7 @@
 	<div class="well span8">
 		<h4>My Events</h4>
 		<% if @course.events.empty? %>
-			<p>You have not addded any events yet</p>
-			<%= form_for([@course, @course.events.build]) do |f| %>
-			  <div class="field">
-			    <%= f.label :name %><br />
-			    <%= f.text_field :name %>
-			  </div>
-			  <div class="field">
-			    <%= f.label :description %><br />
-			    <%= f.text_area :description %>
-			  </div>
-			  <div class='field'>
-			  	<%= f.label :due_date %><br />
-			    <%= f.text_field :due_date %>
-		      </div>
-			  <div class="actions">
-			    <%= f.submit %>
-			  </div>
-			<% end %>
+			<p>You have not added any events yet</p>
 		<% else %>
 			<% current_user.events.each do |event| %>
 				<% if event.course.id == @course.id %>
@@ -50,5 +33,5 @@
 </div>
 
 <%= link_to 'Edit Course', edit_course_path(@course) %> |
-<%= link_to "Delete", remove_enrolled_ins_path(:course => @course.id) %> |
+<%= link_to "Delete Course", remove_enrolled_ins_path(:course => @course.id) %> |
 <%= link_to 'Back', courses_path %>

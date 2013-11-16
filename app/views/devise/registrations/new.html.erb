@@ -13,7 +13,10 @@
   <%= f.text_field :profile_name %></div><br />
 
   <div><%= f.label :school %>
-  <%= f.text_field :school %></div><br />
+    <%= f.select :school, [["University of Waterloo", "University of Waterloo"], ["Wilfrid Laurier University", "Wilfrid Laurier University"], ["University of Toronto", "University of Toronto"], ["University of Ottawa", "University of Ottawa"]] %></div><br />
+
+  <div><%= f.label :program %>
+  <%= f.text_field :program %></div><br />
 
   <div><%= f.label :email %>
   <%= f.email_field :email %></div><br />

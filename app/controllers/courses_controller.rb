@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
     @courses = current_user.courses.all
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @courses }
+      format.json { render json: @course }
     end
   end
 
@@ -124,5 +124,9 @@ class CoursesController < ApplicationController
       format.html { redirect_to courses_url }
       format.json { head :no_content }
     end
+  end
+
+  def show_users_courses
+    @course = current_user.courses
   end
 end

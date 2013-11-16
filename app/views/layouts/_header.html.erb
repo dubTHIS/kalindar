@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
   	<div class="container">
-    	<%= link_to image_tag("logo_small.jpg", :border=>0, :class=>'logo'), root_path, :class=>"brand" %>
+    	<%= link_to image_tag("logo_small.png", :border=>0, :class=>'logo'), root_path, :class=>"brand" %>
 	    <ul class="nav">
 	    	<% if user_signed_in? %>
 	      		<li><%= link_to "My Courses", courses_path %></li>
@@ -15,8 +15,8 @@
 	    </ul>
 	    <ul class="nav pull-right">
 	    	<% if user_signed_in? %>
-				<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
-				<li><%= link_to "Log Out", logout_path, method: :delete %></li>
+			    <li><%= link_to current_user.full_name, current_user %></li>
+			    <li><%= link_to "Log Out", logout_path, method: :delete %></li>
 	    	<% else %>
 	    		<li><%= link_to "Register", register_path %></li>
 	    		<li><%= link_to "Login", login_path %></li>
@@ -26,3 +26,5 @@
     </div>
   </div>
 </div>
+
+	

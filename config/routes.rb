@@ -1,5 +1,7 @@
 Kalindar::Application.routes.draw do
 
+  
+
   resources :activities
 
   match '/help', to: 'static_pages#help'
@@ -11,7 +13,7 @@ Kalindar::Application.routes.draw do
   devise_scope :user do
 	 get 'register', to: 'devise/registrations#new', as: :register
 	 get 'login', to: 'devise/sessions#new', as: :login
-	 delete 'logout', to: 'devise/sessions#destroy', as: :logout
+	 get 'logout', to: 'devise/sessions#destroy', as: :logout
   end
   
  

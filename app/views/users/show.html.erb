@@ -1,0 +1,45 @@
+
+
+<div class="row">
+	<div class="span12">
+		<h3><%= @user.full_name %></h3>
+		<%= link_to image_tag("profilepic.jpg", :class => "img-circle" )%>
+		<p><%= @user.get_school %></p>
+		<p><%= @user.program %></p>
+		<p><a><%= link_to "Update Account", edit_user_registration_path %></a><p>
+	</div>	
+</div>
+<div class="row">
+	<div class="span12">
+		<div class="row">
+			<div class="span8">
+				<h3>Activities</h3>
+			    <% if @activities %>
+			      <% @activities.each do |activity| %>
+			        <%= ActivityPresenter.new(activity, self).render_activity %>
+			      <% end %>
+			    <% else %>
+			      <p>No activities to display.</p>
+			    <% end %>
+			</div>
+			<div class="span3">
+				<h3>Courses</h3>
+				
+			        <%= link_to @courses %>
+
+			     
+				
+				<%= link_to "New Course", new_course_path %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<style>
+.img-circle{	
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+}
+</style>

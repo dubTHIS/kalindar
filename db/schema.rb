@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716222336) do
+ActiveRecord::Schema.define(:version => 20131007143938) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(:version => 20130716222336) do
 
   add_index "activities", ["trackable_id"], :name => "index_activities_on_trackable_id"
   add_index "activities", ["user_id"], :name => "index_activities_on_user_id"
-
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -90,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20130716222336) do
     t.datetime "updated_at",                             :null => false
     t.string   "provider"
     t.string   "uid"
+    t.string   "program"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

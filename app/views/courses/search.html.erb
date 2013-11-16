@@ -11,7 +11,7 @@
 <p>If you do not see the course you want here, please <%= link_to 'Create it!', new_course_path %></p>
 
 <% @courses.each do |course| %>
-  <% if @current_user.school == course.school %>
+  <% if current_user.school == course.school %>
     <div class="course">
       <div class="row">
         <div class="span8">

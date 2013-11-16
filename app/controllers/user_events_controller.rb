@@ -45,7 +45,7 @@ class UserEventsController < ApplicationController
     if @user
       @course = @event.course
       @user.events.delete(@event)
-      redirect_to course, notice: 'Event Removed.'
+      redirect_to @course, notice: 'Event Removed.'
     end
   end
 end

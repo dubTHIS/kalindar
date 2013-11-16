@@ -87,7 +87,7 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.save
         track_activity @course
-        format.html { redirect_to add_enrolled_in_path(:course => @course.id), notice: 'Course was successfully created.' }
+        format.html { redirect_to add_enrolled_ins_path(:course => @course.id), notice: 'Course was successfully created.' }
         format.json { render json: @course, status: :created, location: @course }
       else
         format.html { render action: "new" }

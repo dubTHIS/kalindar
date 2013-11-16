@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     @course = Course.find(params[:course_id])
     @event = @course.events.create(params[:event])
 
-    redirect_to add_user_event_path(:event => @event.id)
+    redirect_to add_user_events_path(:event => @event.id)
   end
 
   # GET /events/1/edit
@@ -41,17 +41,15 @@ class EventsController < ApplicationController
     @course = Course.find(params[:course_id])
     @event = @course.events.create(params[:event])
 
-    redirect_to add_user_event_path(:event => @event.id)
-
-    #respond_to do |format|
-    #  if @event.save
-    #    format.html { redirect_to @event, notice: 'Event was successfully created.' }
-    #    format.json { render json: @event, status: :created, location: @event }
-    #  else
-    #    format.html { render action: "new" }
-    #    format.json { render json: @event.errors, status: :unprocessable_entity }
-    #  end
-    #end
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to add_user_events_path(:event => @event.id), notice: 'Event was successfully created.' }
+        format.json { render json: @event, status: :created, location: @event }
+      else
+        format.html { redirect_to @course, notice: 'Event could not be created.' }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PUT /events/1

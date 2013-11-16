@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
     @courses = current_user.courses.all
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @course }
+      format.json { render json: @courses }
     end
   end
 
